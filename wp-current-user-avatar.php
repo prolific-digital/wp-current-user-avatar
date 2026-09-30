@@ -1,23 +1,26 @@
 <?php
 /**
- * Plugin Name: WP Current User Avatar
- * Description: Provides a shortcode [current_user_avatar] to display the current logged-in user's avatar.
- * Version: 1.0.0
- * Author: Prolific Digital
- * Author URI: https://prolificdigital.com
- * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: wp-current-user-avatar
- * Domain Path: /languages
+ * Plugin Name:       WP Current User Avatar
+ * Plugin URI:        https://prolificdigital.com
+ * Description:       Provides a [current_user_avatar] shortcode that displays the logged-in user's avatar.
+ * Version:           1.1.0
+ * Requires at least: 6.5
+ * Requires PHP:      8.4
+ * Author:            Prolific Digital
+ * Author URI:        https://prolificdigital.com
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       wp-current-user-avatar
+ * Domain Path:       /languages
+ * Update URI:        https://api.prolificdigital.io/api/update?plugin=wp-current-user-avatar
+ *
+ * @package WPCurrentUserAvatar
  */
 
-// If this file is called directly, abort.
-if (!defined('WPINC')) {
-    die;
-}
+defined( 'ABSPATH' ) || exit;
 
 // Define plugin constants
-define('WP_CURRENT_USER_AVATAR_VERSION', '1.0.0');
+define( 'WP_CURRENT_USER_AVATAR_VERSION', '1.1.0' );
 define('WP_CURRENT_USER_AVATAR_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WP_CURRENT_USER_AVATAR_PLUGIN_URL', plugin_dir_url(__FILE__));
 define( 'WP_CURRENT_USER_AVATAR_PLUGIN_FILE', __FILE__ );
@@ -40,7 +43,7 @@ function wp_current_user_avatar_load_textdomain() {
         dirname(plugin_basename(__FILE__)) . '/languages/'
     );
 }
-add_action('plugins_loaded', 'wp_current_user_avatar_load_textdomain');
+add_action('init', 'wp_current_user_avatar_load_textdomain');
 
 /**
  * Current User Avatar Shortcode
