@@ -20,6 +20,15 @@ if (!defined('WPINC')) {
 define('WP_CURRENT_USER_AVATAR_VERSION', '1.0.0');
 define('WP_CURRENT_USER_AVATAR_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WP_CURRENT_USER_AVATAR_PLUGIN_URL', plugin_dir_url(__FILE__));
+define( 'WP_CURRENT_USER_AVATAR_PLUGIN_FILE', __FILE__ );
+
+// Composer dependencies (plugin-update-checker). Present in release zips;
+// in a git checkout run `composer install` first.
+if ( is_readable( WP_CURRENT_USER_AVATAR_PLUGIN_DIR . 'vendor/autoload.php' ) ) {
+	require_once WP_CURRENT_USER_AVATAR_PLUGIN_DIR . 'vendor/autoload.php';
+}
+
+require_once WP_CURRENT_USER_AVATAR_PLUGIN_DIR . 'includes/update-checker.php';
 
 /**
  * Load plugin text domain for translations

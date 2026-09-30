@@ -33,4 +33,4 @@ yarn-error.log*
 
 # Compiled translations
 languages/*.mo
-languages/*.json
+languages/*.json*.zip
